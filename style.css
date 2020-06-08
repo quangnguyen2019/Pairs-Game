@@ -1,0 +1,67 @@
+* {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eee;
+}
+
+.controls {
+
+}
+
+.sub-control {
+    display: inline-block;
+    padding: 12px;
+}
+
+.sub-control input {
+    border: none;
+    border-bottom: 1px solid #888;
+    width: 50px;
+    margin-right: 5px;
+    background-color: transparent;
+    padding: 5px;
+    outline: none;
+    text-align: center;
+}
+
+.sub-control select {
+    padding: 5px 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.sub-control .btn-start {
+    padding: 5px 15px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 25px;
+}
+
+.countdown-timer .timer {
+    padding: 12px;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.grid-cells {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 5px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.grid-cells .cell {
+    float: left;
+    background-color: black;
+    height: 120px;
+    width: 120px;
+}

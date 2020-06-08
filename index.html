@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pairs Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    
+    <div class="game-container">
+        <div class="controls">
+            <div class="sub-control">
+                <input type="text" id="row-input">
+                <label for="row-input"> Rows </label>
+            </div>
+            <div class="sub-control">
+                <input type="text" id="col-input">
+                <label for="col-input"> Columns </label>
+            </div>
+            <div class="sub-control">
+                <button class="btn-start" onclick="Create_Grid()"> Start </button>
+            </div>
+        </div>
+
+        <div class="countdown-timer">
+            <img src="Icon/time32px.png" alt="timer icon" style="width: 32px; height: 32px;">
+            <span class="timer"> 00:00 </span>
+        </div>
+
+        <div class="grid-cells">
+            <div id="1" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="2" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="3" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="4" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="5" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="6" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="7" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="8" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="9" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="10" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="11" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="12" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="13" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="14" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="15" class="cell" onclick="Cell_Click(this.id)"></div>
+            <div id="16" class="cell" onclick="Cell_Click(this.id)"></div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>
