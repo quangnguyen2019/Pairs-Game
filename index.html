@@ -11,36 +11,53 @@
     <div class="game-container">
         <div class="controls">
             <div class="control">
-                <input type="text" id="row-input" value="4">
+                <input 
+                    type="text" 
+                    id="row-input" 
+                    value="4" 
+                    onkeypress="CheckInput(event)"
+                >
                 <label for="row-input"> Rows </label>
             </div>
             <div class="control">
-                <input type="text" id="col-input" value="4">
+                <input 
+                    type="text" 
+                    id="col-input" 
+                    value="4" 
+                    onkeypress="CheckInput(event)"
+                >
                 <label for="col-input"> Columns </label>
             </div>
 
             <div class="control">
                 <select name="levels" id="levels">
-                    <option value="2">Easy (2 minutes)</option>
-                    <option value="1.5">Medium (1.5 minutes)</option>
-                    <option value="0.1">Hard (1 minutes)</option>
+                    <option value="2"> Easy (2 minutes) </option>
+                    <option value="1.5"> Medium (1.5 minutes) </option>
+                    <option value="0.1"> Hard (1 minutes) </option>
                 </select>
             </div>
 
             <div class="control">
-                <button class="btn-start" onclick="Create_Grid()"> Start </button>
+                <button 
+                    class="btn-start" 
+                    onclick="Create_Grid()"> Start 
+                </button>
             </div>
         </div>
 
         <div class="countdown-timer">
-            <img src="Icon/time32px.png" alt="timer icon" style="width: 32px; height: 32px;">
+            <img 
+                src="Icon/time32px.png" 
+                alt="timer icon" 
+                style="width: 32px; height: 32px;"
+            >
             <span class="timer">00:00</span>
         </div>
 
         <div class="main">
             <div class="grid-cells"></div>
         </div>
-        
+
         <div class="result">
             <p class="notification"></p>
         </div>
