@@ -1,23 +1,13 @@
-// const fs = require('fs');
-
-// let arrImages = [];
-// let imgPath = './images/';
-// let i = 0;
-
-// fs.readdir(imgPath, (err, files) => {
-//     files.forEach(file => {
-//         arrImages[i] = imgPath + file;
-//         i++;
-//     });
-// });
 
 let arrImages = [];
-let imgPath = 'images_1/';
+let imgPath = 'images/';
 let index = 0;
 let row, column;
-let time = 2;
+
+let time;
 let coupleRemaining;
 let idInterval;
+
 let gridCells = document.getElementsByClassName("grid-cells")[0];
 let notification = document.getElementsByClassName("notification")[0];
 
@@ -27,8 +17,9 @@ function Create_Grid() {
     gridCells.classList.remove("disable-grid");
     
     // remove interval if it exists
-    if (idInterval) clearInterval(idInterval);
+    if (idInterval) { clearInterval(idInterval); }
 
+    // Get row and column value
     row = document.getElementById("row-input").value;
     column = document.getElementById("col-input").value;
 
@@ -37,15 +28,18 @@ function Create_Grid() {
         return;
     }
 
+    // Set time
+    time = SetCountdownTime();
+
     // Số cặp còn lại
     coupleRemaining = row * column / 2;
     let count = 0;
 
-    for (let i = 0; i < column; i++) 
+    for (let i = 0; i < row; i++) 
     {
         let divRow = document.createElement("div");
 
-        for (let j = 0; j < row; j++) 
+        for (let j = 0; j < column; j++) 
         {
             let cell = document.createElement("div");
             cell.id = count;
@@ -66,18 +60,20 @@ function Create_Grid() {
         gridCells.appendChild(divRow);
     }
 
+    // add images to array
     AddImagesToArr();
 
+    // Save id interval to remove it when start new game
     idInterval = CountdownTime();
 }
 
 function CellSize() {
-    let cellSizeByColumn = Math.floor((gridCells.offsetWidth - 5 * (column - 1)) / column);
-    let cellSizeByRow = Math.floor((gridCells.offsetHeight - 5 * (row - 1)) / row);
-    return Math.min(cellSizeByColumn, cellSizeByRow);
+    return Math.floor((gridCells.offsetWidth - 10 * (column - 1)) / column);
 }
 
 function AddImagesToArr() {
+    arrImages = [];
+
     for (let i = 0; i < row * column; i += 2) {
         arrImages[i] = imgPath + "image_" + index + ".png";
         arrImages[i + 1] = imgPath + "image_" + index + ".png";
@@ -141,6 +137,10 @@ function CheckSameImages()
     cellOpenedFirst = null;
 }
 
+function SetCountdownTime() {
+    let e = document.getElementById("levels");
+    return e.options[e.selectedIndex].value;
+}
 
 function CountdownTime() 
 {
@@ -148,12 +148,12 @@ function CountdownTime()
 
     minutes = Math.floor(time);
     seconds = (time - minutes) * 60;
+    
+    let strMinutes = "0" + minutes;
+    let strSeconds = (seconds < 10) ? '0' + seconds : seconds;
+    document.getElementsByClassName("timer")[0].innerText =  strMinutes + ":" + strSeconds;
 
     let temp = setInterval(() => {
-        let strMinutes = "0" + minutes;
-        let strSeconds = (seconds < 10) ? '0' + seconds : seconds;
-        document.getElementsByClassName("timer")[0].innerText =  strMinutes + ":" + strSeconds;
-
         if (seconds === 0) {
             if (minutes > 0) {
                 minutes -= 1;
@@ -163,6 +163,10 @@ function CountdownTime()
         else {
             seconds -= 1;
         }
+
+        strMinutes = "0" + minutes;
+        strSeconds = (seconds < 10) ? '0' + seconds : seconds;
+        document.getElementsByClassName("timer")[0].innerText =  strMinutes + ":" + strSeconds;
 
         if (minutes === 0 && seconds === 0) {
             clearInterval(temp);
