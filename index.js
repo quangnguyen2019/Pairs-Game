@@ -68,18 +68,7 @@ function Create_Grid() {
 
     AddImagesToArr();
 
-    // clear all interval in the past
-    // deleteInterval();
-
     idInterval = CountdownTime();
-}
-
-function deleteInterval (w) {
-    w = w || window; 
-    let i = w.setInterval(function(){},30000); 
-    while(i>=0) { 
-        w.clearInterval(i--); 
-    }
 }
 
 function CellSize() {
