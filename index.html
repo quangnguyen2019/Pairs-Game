@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pairs Game</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
 </head>
 <body>
     
     <div class="game-container">
         <div class="controls">
             <div class="sub-control">
-                <input type="text" id="row-input">
+                <input type="text" id="row-input" value="4">
                 <label for="row-input"> Rows </label>
             </div>
             <div class="sub-control">
-                <input type="text" id="col-input">
+                <input type="text" id="col-input" value="4">
                 <label for="col-input"> Columns </label>
             </div>
             <div class="sub-control">
@@ -30,26 +29,12 @@
         </div>
 
         <div class="grid-cells">
-            <div id="1" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="2" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="3" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="4" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="5" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="6" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="7" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="8" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="9" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="10" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="11" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="12" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="13" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="14" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="15" class="cell" onclick="Cell_Click(this.id)"></div>
-            <div id="16" class="cell" onclick="Cell_Click(this.id)"></div>
         </div>
+
+        <p class="notification"></p>
     </div>
 
-    
+    <script src="index.js"></script>
 
 </body>
 </html>
