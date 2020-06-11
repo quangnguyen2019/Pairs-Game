@@ -75,6 +75,7 @@ function AddImagesToArr() {
     arrImages = [];
 
     for (let i = 0; i < row * column; i += 2) {
+        index %= 16;
         arrImages[i] = imgPath + "image_" + index + ".png";
         arrImages[i + 1] = imgPath + "image_" + index + ".png";
         index++;
@@ -97,7 +98,7 @@ function Cell_Click (id)
         arrImages.splice(index, 1);
 
         element.style.backgroundImage = "url(" + imgRandom + ")";
-        element.style.backgroundSize = "90px";
+        element.style.backgroundSize = "80px";
         element.style.backgroundRepeat = "no-repeat";
     }
 
@@ -119,14 +120,16 @@ function CheckSameImages()
         cellOpenedSecond.style.backgroundImage) 
     {
         // ẩn hình sau 0.5s
-        setTimeout((cellOpenedFirst, cellOpenedSecond) => {
+        setTimeout((cellOpenedFirst, cellOpenedSecond) => 
+        {
             cellOpenedFirst.style.backgroundPosition = "-9999px";
             cellOpenedSecond.style.backgroundPosition = "-9999px";
         }, 400, cellOpenedFirst, cellOpenedSecond);
     }
     else {
         // disable 2 ô mở ra giống nhau
-        setTimeout((cellOpenedFirst, cellOpenedSecond) => {
+        setTimeout((cellOpenedFirst, cellOpenedSecond) => 
+        {
             cellOpenedFirst.classList.add("disable");
             cellOpenedSecond.classList.add("disable");
         }, 300, cellOpenedFirst, cellOpenedSecond);
@@ -188,4 +191,12 @@ function CountdownTime()
     }, 1000);
 
     return temp;
+}
+
+function CheckInput(event) {
+    if (event.charCode < 50 || 
+        event.charCode > 54 ) 
+    {
+        event.preventDefault();
+    }
 }
